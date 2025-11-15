@@ -1,3 +1,5 @@
+﻿using Examen_final_desarrollo_web.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Examen_final_desarrollo_web
 {
@@ -7,16 +9,20 @@ namespace Examen_final_desarrollo_web
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            // MVC con Vistas
+            builder.Services.AddControllersWithViews();
 
-            builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            // EF Core
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+            );
+
+            // Swagger (solo si querés mantenerlo)
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
@@ -24,11 +30,16 @@ namespace Examen_final_desarrollo_web
             }
 
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
+
+            app.UseRouting();
 
             app.UseAuthorization();
 
-
-            app.MapControllers();
+            // ⭐ Ruta MVC
+            app.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Turnos}/{action=Index}/{id?}");
 
             app.Run();
         }
