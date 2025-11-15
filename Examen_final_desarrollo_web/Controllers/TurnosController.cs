@@ -30,6 +30,7 @@ public class TurnosController : Controller
     [HttpPost]
     public async Task<IActionResult> Reasignar(int TurnoId, int NuevaClinicaId, string Motivo)
     {
+        Console.WriteLine($">>> TurnoId recibido: {TurnoId}");
         if (string.IsNullOrWhiteSpace(Motivo))
         {
             TempData["Error"] = "El motivo de la reasignación es obligatorio.";

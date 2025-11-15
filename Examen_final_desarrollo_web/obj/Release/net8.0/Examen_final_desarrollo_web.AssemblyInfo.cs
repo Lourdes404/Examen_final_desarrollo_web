@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Examen_final_desarrollo_web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f6f8f606b56c0fb763c03a3d6bf35f4666275c26")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+47537c6b5f8e5af8e38c674c3b55f3c5108b7b14")]
 [assembly: System.Reflection.AssemblyProductAttribute("Examen_final_desarrollo_web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Examen_final_desarrollo_web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
